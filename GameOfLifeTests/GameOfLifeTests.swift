@@ -11,24 +11,20 @@ import XCTest
 
 class GameOfLifeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_isNeighbor() {
+        let c1 = Cell(state: .alive, x: 0, y: 0)
+        let c2 = Cell(state: .alive, x: 0, y: 1)
+        let c3 = Cell(state: .alive, x: 1, y: 0)
+        let c4 = Cell(state: .alive, x: 2, y: 2)
+        
+        XCTAssertTrue(c1.isNeighbor(cell: c2))
+        XCTAssertTrue(c1.isNeighbor(cell: c3))
+        XCTAssertFalse(c1.isNeighbor(cell: c4))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_gameboard() {
+        let g1 = GameBoard(rows: 5, cols: 5)
+        
+        XCTAssertEqual(25, g1.cells.count)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

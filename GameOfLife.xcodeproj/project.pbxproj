@@ -14,6 +14,10 @@
 		A64B58C1253A97DC0063750C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64B58C0253A97DC0063750C /* Preview Assets.xcassets */; };
 		A64B58C4253A97DC0063750C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A64B58C2253A97DC0063750C /* LaunchScreen.storyboard */; };
 		A64B58CF253A97DC0063750C /* GameOfLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B58CE253A97DC0063750C /* GameOfLifeTests.swift */; };
+		A64B58DA253A98020063750C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B58D9253A98020063750C /* Cell.swift */; };
+		A64B58DC253A9B610063750C /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B58DB253A9B610063750C /* GameBoard.swift */; };
+		A64B58DE253AA6DA0063750C /* GameBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B58DD253AA6DA0063750C /* GameBoardViewModel.swift */; };
+		A6F1B62B253E767E00872F4D /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F1B62A253E767E00872F4D /* CellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		A64B58CA253A97DC0063750C /* GameOfLifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameOfLifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64B58CE253A97DC0063750C /* GameOfLifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeTests.swift; sourceTree = "<group>"; };
 		A64B58D0253A97DC0063750C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A64B58D9253A98020063750C /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		A64B58DB253A9B610063750C /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
+		A64B58DD253AA6DA0063750C /* GameBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardViewModel.swift; sourceTree = "<group>"; };
+		A6F1B62A253E767E00872F4D /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,10 @@
 				A64B58C2253A97DC0063750C /* LaunchScreen.storyboard */,
 				A64B58C5253A97DC0063750C /* Info.plist */,
 				A64B58BF253A97DC0063750C /* Preview Content */,
+				A64B58D9253A98020063750C /* Cell.swift */,
+				A64B58DB253A9B610063750C /* GameBoard.swift */,
+				A64B58DD253AA6DA0063750C /* GameBoardViewModel.swift */,
+				A6F1B62A253E767E00872F4D /* CellView.swift */,
 			);
 			path = GameOfLife;
 			sourceTree = "<group>";
@@ -209,8 +221,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A64B58B8253A97D60063750C /* AppDelegate.swift in Sources */,
+				A64B58DE253AA6DA0063750C /* GameBoardViewModel.swift in Sources */,
+				A64B58DA253A98020063750C /* Cell.swift in Sources */,
+				A64B58DC253A9B610063750C /* GameBoard.swift in Sources */,
 				A64B58BA253A97D60063750C /* SceneDelegate.swift in Sources */,
 				A64B58BC253A97D60063750C /* ContentView.swift in Sources */,
+				A6F1B62B253E767E00872F4D /* CellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
