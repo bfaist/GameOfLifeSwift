@@ -12,7 +12,7 @@ import Combine
 class GameBoardViewModel: ObservableObject {
     let gridSize: Int
     
-    var gameBoard: GameBoard?
+    var gameBoard: GameBoard
     
     @Published var cells = [Cell]()
     
@@ -26,27 +26,23 @@ class GameBoardViewModel: ObservableObject {
     
     init(gridSize: Int = 20){
         self.gridSize = gridSize
-        self.gameBoard = GameBoard(rows: gridSize, cols: gridSize)
-        self.cells = self.gameBoard?.cells ?? []
+        self.gameBoard = GameBoard(rows: gridSize, cols: gridSize, boardSetup: GameRandom())
+        self.cells = self.gameBoard.cells
     }
     
     func hasCell(row: Int, col: Int) -> Bool {
-        let index = row * col
-        guard index < cells.count else { return false }
-        return true
+        cells.first(where: { $0.x == row && $0.y == col }) != nil
     }
     
     func cell(row: Int, col: Int) -> Cell {
-        guard hasCell(row: row, col: col) else { return Cell(state: .dead, x: row, y: col) }
-        let index = row * col
-        return cells[index]
+        guard let cell = cells.first(where: { $0.x == row && $0.y == col }) else {
+            return Cell(state: .dead, x: row, y: col)
+        }
+        return cell
     }
     
     func nextGeneration() {
-        guard let gameBoard = gameBoard else { fatalError("no gameboard") }
-        
         gameBoard.nextGeneration()
-        
         self.cells = gameBoard.cells
     }
 }

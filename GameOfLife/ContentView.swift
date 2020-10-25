@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @ObservedObject var viewModel = GameBoardViewModel(gridSize: 50)
+    @ObservedObject var viewModel = GameBoardViewModel(gridSize: 30)
     
-    var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {

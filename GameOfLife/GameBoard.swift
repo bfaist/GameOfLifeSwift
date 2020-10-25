@@ -8,27 +8,21 @@
 
 import Foundation
 
+protocol GameBoardSetup {
+    func setup(rows: Int, cols: Int) -> [Cell]
+}
+
 class GameBoard {
     let rows: Int
     let cols: Int
     
     var cells = [Cell]()
     
-    init(rows: Int, cols: Int) {
+    init(rows: Int, cols: Int, boardSetup: GameBoardSetup) {
         self.cols = cols
         self.rows = rows
         
-        setupInitialBoard()
-    }
-    
-    func setupInitialBoard() {
-        for x in 0..<rows {
-            for y in 0..<cols {
-                let state = Int.random(in: 0...3)
-                let cell = Cell(state: state == 0 ? .alive : .dead, x: x, y: y)
-                cells.append(cell)
-            }
-        }
+        cells = boardSetup.setup(rows: rows, cols: cols)
     }
     
     func nextGeneration() {
@@ -52,5 +46,41 @@ class GameBoard {
         }
         
         cells = updatedCells
+    }
+}
+
+class GameOneRow : GameBoardSetup {
+    func setup(rows: Int, cols: Int) -> [Cell] {
+        var cells = [Cell]()
+        let middleRow = Int(rows / 2)
+        let middleColumn = Int(cols / 2)
+        let padColSize = Int(middleColumn / 2)
+        let startRange = padColSize
+        let endRange = cols - padColSize
+        
+        for x in 0..<rows {
+            for y in 0..<cols {
+                if y == middleRow, (startRange..<endRange).contains(x) {
+                    cells.append(Cell(state: .alive, x: x, y: y))
+                } else {
+                    cells.append(Cell(state: .dead, x: x, y: y))
+                }
+            }
+        }
+        return cells
+    }
+}
+
+class GameRandom : GameBoardSetup {
+    func setup(rows: Int, cols: Int) -> [Cell] {
+        var cells = [Cell]()
+        for x in 0..<rows {
+            for y in 0..<cols {
+                let state = Int.random(in: 0...3)
+                let cell = Cell(state: state == 0 ? .alive : .dead, x: x, y: y)
+                cells.append(cell)
+            }
+        }
+        return cells
     }
 }
